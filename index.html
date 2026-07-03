@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlavourFinds</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class=" w-full h-auto flex flex-col m-w-[1024px] lg:m-auto">
+    <header
+      class="min-h-15 h-auto border-b border-[#ccc] w-full flex md:justify-between items-center  fixed flex-col md:flex-row bg-white z-1000">
+      <div class="bannerContainer min-h-15 w-full md:w-auto flex justify-between items-center ml-6.5 ">
+        <div class="flex items-center gap-1">
+          <img src="/Images/image copy 2.png" alt="Resturant-Logo" height="45px" width="45px">
+          <h2 class="text-2xl font-semibold">FlavourFinds</h2>
+        </div>
+        <div class="menuIconContainer flex md:hidden absolute right-0">
+          <button class="hamburger hamburger--spin text-black " type="button">
+            <span class="hamburger-box ">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="searchBarContainer hidden md:flex">
+        <input type="text" placeholder="Search Items..."
+          class="h-9 border border-[#ccc] rounded-2xl p-3 pl-4 pr-6 text-base outline-none searchBar">
+      </div>
+      <div class="headerButtonContainer mr-6.5 hidden md:flex gap-1.5">
+        <button class="addRecipe rounded p-1.5 pl-4 pr-4 border-4 border-none bg-[#f2f2f2] text-[14px] font-sans"><i
+            class="fa-regular fa-pen-to-square primary-color text-base mr-0.5"></i>ADD RECIPE</button>
+        <button class="bookMarks rounded p-1.5 px-4 border-4 border-none bg-[#f2f2f2] text-[14px] font-sans"><i
+            class="fa-regular fa-bookmark primary-color text-base mr-0.5"></i>BOOKMARKS</button>
+      </div>
+
+
+      <!-- Mobile Navbar -->
+      <div class="mobileNavbarrContainer w-full hidden max-h-0 opacity-0 flex flex-col border-t-2 border-[#ccc]  gap-2 px-2 transition-all duration-300 ease-in-out bg-white
+      relative z-1000">
+        <div class="searchBarContainer pt-4">
+          <input type="text" placeholder="Search Items..."
+            class="h-9 border border-[#ccc] rounded-2xl p-3 pl-4 pr-6 text-base outline-none w-full searchBar">
+        </div>
+        <div class="headerButtonContainer mr-6.5  gap-1.5 w-full flex justify-center pb-4">
+          <button
+            class="rounded p-1.5 pl-4 pr-4 border-4 border-none primary-bg text-white font-semibold text-[14px] font-sans"><i
+              class="fa-regular fa-pen-to-square  text-base mr-0.5"></i>ADD RECIPE</button>
+          <button
+            class="rounded p-1.5 px-4 border-4 border-none primary-bg font-semibold text-white text-[14px] font-sans"><i
+              class="fa-regular fa-bookmark  text-base mr-0.5"></i>BOOKMARKS</button>
+        </div>
+      </div>
+    </header>
+    <main class="flex-1 w-full mt-15 flex flex-row">
+      <div class="mainLayout w-full md:w-[75%] shadow-[0px_5px_15px_rgba(0,0,0,0.35)]">
+        <div class="navigationPanel w-full h-13 flex justify-center items-center gap-3 px-3 border-b border-[#ccc]">
+          <span
+            class="allNavigation px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]  sm:text-base">All</span>
+          <span
+            class="BurgersNavigation  px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]   sm:text-base">Burgers</span>
+         
+          <span
+            class="SteaksNavigation  px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]   sm:text-base">Steaks</span>
+          <span
+            class="pizzaNavigation  px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]   sm:text-base">Pizza</span>
+             <span
+            class="drinksNavigation  px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]   sm:text-base">Drinks</span>
+          <span
+            class="dessertsNavigation  px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]   sm:text-base">Desserts</span>
+        </div>
+        <div class="cards h-[calc(100vh-112px)] overflow-y-scroll flex flex-wrap gap-5 justify-center items-center py-5">
+          <div class="loader"></div>
+          <p class="font-semibold text-2xl">Fetching Products</p>
+           
+        </div>
+      </div>
+      <div class="mainCart w-[25%] bg-amber-500 hidden  h-[calc(100vh-60px)] md:flex justify-center items-center text-2xl font-semibold">Coming Soon.......</div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
