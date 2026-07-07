@@ -58,28 +58,32 @@
     </header>
     <main class="flex-1 w-full mt-15 flex flex-row">
       <div class="mainLayout w-full md:w-[75%] shadow-[0px_5px_15px_rgba(0,0,0,0.35)]">
-        <div class="navigationPanel w-full h-13 flex justify-center items-center gap-3 px-3 border-b border-[#ccc] bg-[#f8f2f2]">
+        <div
+          class="navigationPanel w-full h-13 flex justify-center items-center gap-3 px-3 border-b border-[#ccc] bg-[#f8f2f2]">
           <span
-            class="allNavigation cursor-pointer px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]  sm:text-base bg-white">All</span>
+            class="allNavigation cursor-pointer px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]  sm:text-base bg-[#f1e3e3]">All</span>
           <span
             class="BurgersNavigation cursor-pointer px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]   sm:text-base bg-white">Burgers</span>
-         
+
           <span
             class="SteaksNavigation cursor-pointer px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]   sm:text-base bg-white">Steaks</span>
           <span
             class="pizzaNavigation cursor-pointer px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]   sm:text-base bg-white">Pizza</span>
-             <span
+          <span
             class="drinksNavigation cursor-pointer px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]   sm:text-base bg-white">Drinks</span>
           <span
             class="dessertsNavigation cursor-pointer px-4  sm:px-6 py-0.5 rounded-2xl  shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] font-serif  text-[15px]   sm:text-base bg-white">Desserts</span>
         </div>
-        <div class="cards h-[calc(100vh-112px)] overflow-y-scroll flex flex-wrap gap-5 justify-center items-center py-5 ">
+        <div
+          class="cards h-[calc(100vh-112px)] overflow-y-scroll flex flex-wrap gap-5 justify-center items-center py-5 ">
           <div class="loader"></div>
           <p class="font-semibold text-2xl">Fetching Products</p>
-           
+
         </div>
       </div>
-      <div class="mainCart w-[25%]  hidden  h-[calc(100vh-60px)] md:flex justify-center items-center text-2xl font-semibold">Coming Soon.......</div>
+      <div
+        class="mainCart w-[25%]  hidden  h-[calc(100vh-60px)] md:flex justify-center items-center text-2xl font-semibold">
+        Coming Soon.......</div>
     </main>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

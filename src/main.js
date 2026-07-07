@@ -14,6 +14,46 @@ const dessertsNavigation = document.querySelector(".dessertsNavigation");
 const addRecipe=document.querySelector(".addRecipe")
 const bookMarks=document.querySelector(".bookMarks")
 const searchBar = document.querySelector(".searchBar");
+let recentActiveTab=allNavigation;
+ const activeTabCheck=(activeTab)=>{
+    switch (activeTab.toLowerCase()) {
+      case "all":
+         allNavigation.style.backgroundColor="#f1e3e3"
+          recentActiveTab.style.backgroundColor="#fff";
+         recentActiveTab=allNavigation;
+         break;
+      case "burgers":
+         BurgersNavigation.style.backgroundColor="#f1e3e3";
+         recentActiveTab.style.backgroundColor="#fff"
+         recentActiveTab=BurgersNavigation;
+         break;
+      case "steaks":
+         SteaksNavigation.style.backgroundColor="#f1e3e3";
+         recentActiveTab.style.backgroundColor="#fff"
+         recentActiveTab=SteaksNavigation;
+         break;
+      case "pizzas":
+         pizzaNavigation.style.backgroundColor="#f1e3e3";
+         recentActiveTab.style.backgroundColor="#fff"
+         recentActiveTab=pizzaNavigation;
+         break;
+      case "drinks":
+         drinksNavigation.style.backgroundColor="#f1e3e3";
+         recentActiveTab.style.backgroundColor="#fff"
+         recentActiveTab=drinksNavigation;
+         break;
+      case "desserts":
+         dessertsNavigation.style.backgroundColor="#f1e3e3";
+         recentActiveTab.style.backgroundColor="#fff"
+         recentActiveTab=dessertsNavigation;
+         break;
+      case "":
+         recentActiveTab.style.backgroundColor="#fff"
+          break;
+      default:
+         break;
+    }
+}
 
 hamburger.addEventListener("click", () => {
    hamburger.classList.toggle("is-active");
@@ -42,25 +82,7 @@ hamburger.addEventListener("click", () => {
 
 
 const returnCard = (data) => {
-   let rating = data.rate;
-   let ratingStar;
-   switch (rating) {
-      case 1:
-         ratingStar = "⭐"
-         break;
-      case 2:
-         ratingStar = "⭐⭐"
-         break;
-      case 3:
-         ratingStar = "⭐⭐⭐"
-         break;
-      case 4:
-         ratingStar = "⭐⭐⭐⭐"
-         break;
-      case 5:
-         ratingStar = "⭐⭐⭐⭐⭐"
-         break;
-   }
+    let ratingStar="⭐".repeat(data.rate);
    return `
       <div class="card h-86 w-76 bg-[#FFFFFF] rounded-[20px] shadow-[0_18px_45px_rgba(0,0,0,.10),0_6px_18px_rgba(0,0,0,.06)] font-sans relative">
             <img src=${data.img} alt="" class="h-[60%] w-full rounded-t-[20px]" onerror=" this.src='/Images/default Image.jpg'">
@@ -175,25 +197,35 @@ apiData("All")
 // Event Listeners
 allNavigation.addEventListener("click", () => {
    apiData("All")
-   // allNavigation.style.backgroundColor="#dcd2d2"
-})
+   activeTabCheck("all")
+ })
 BurgersNavigation.addEventListener("click", () => {
    apiData("Burgers")
+   activeTabCheck("burgers")
 })
 SteaksNavigation.addEventListener("click", () => {
    apiData("Steaks")
+   activeTabCheck("steaks") 
 })
 pizzaNavigation.addEventListener("click", () => {
    apiData("Pizzas")
+   activeTabCheck("pizzas")
 })
 drinksNavigation.addEventListener("click", () => {
    apiData("Drinks")
+    activeTabCheck("drinks")
 })
 dessertsNavigation.addEventListener("click", () => {
    apiData("Desserts")
-});
+   activeTabCheck("desserts")
+ });
 searchBar.addEventListener("input", () => {
-   searchBar.value.trim() ? apiData("All", searchBar.value) : ""
+   if(searchBar.value.trim()) {
+      apiData("All", searchBar.value);
+       activeTabCheck("")
+   }  else {allNavigation.style.backgroundColor="#f1e3e3"
+      apiData("All")
+   }
 });
 addRecipe.addEventListener("click",()=>{
    Swal.fire("Coming Soon...");
