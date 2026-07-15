@@ -14,6 +14,7 @@ const dessertsNavigation = document.querySelector(".dessertsNavigation");
 const addRecipe=document.querySelector(".addRecipe")
 const bookMarks=document.querySelector(".bookMarks")
 const searchBar = document.querySelector(".searchBar");
+const cartList=document.querySelector(".cartList");
 let recentActiveTab=allNavigation;
 let cart=[];
  const activeTabCheck=(activeTab)=>{
@@ -80,6 +81,10 @@ hamburger.addEventListener("click", () => {
    }
 
 });
+function deleteCartItemBtn(item) {
+   item.parentElement.remove();
+};
+window.deleteCartItemBtn=deleteCartItemBtn;
 
 const addToCart=(product)=>{
     cart.push({
@@ -88,7 +93,34 @@ const addToCart=(product)=>{
       img:product.parentElement.parentElement.querySelector("img").src,
       description:product.parentElement.parentElement.querySelector("p").textContent
    });
-   console.log(cart);
+   let cartHTML=cart.map((eachItem)=>{
+   return `
+      <li class="py-1 sm:py-1 w-full flex justify-between items-center px-2">
+              <div class="flex items-center w-[85%] shadow-[0_3px_8px_rgba(0,0,0,0.24)] p-1.5 rounded-[10px]">
+                <div class="shrink-0">
+                  <img class="w-8 h-8 rounded-full"
+                    src="${eachItem.img}"
+                    alt="Neil image">
+                </div>
+                <div class="flex-1 min-w-0 ms-2">
+                  <p class="font-bold text-xl truncate">
+                     ${eachItem.name}
+                  </p>
+                  <p class="text-sm truncate font-light">
+                    ${eachItem.description}
+                  </p>
+                </div>
+                <div class="inline-flex items-center font-bold text-xl">
+                  $${eachItem.price}
+                </div>
+              </div>
+              <div class="deleteBtn" onclick="deleteCartItemBtn(this)">
+                <i class="fa-solid fa-delete-left text-[red]" ></i>
+              </div>
+            </li>
+   `
+   });
+  cartList.innerHTML=cartHTML.join("")
 }
 window.addToCart=addToCart;
 const returnCard = (data) => {
