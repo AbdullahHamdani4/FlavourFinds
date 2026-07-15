@@ -81,9 +81,67 @@
 
         </div>
       </div>
-      <div
-        class="mainCart w-[25%]  hidden  h-[calc(100vh-60px)] md:flex justify-center items-center text-2xl font-semibold">
-        Coming Soon.......</div>
+      <div class="mainCart w-[25%]  hidden  h-[calc(100vh-60px)] md:flex  flex-col text-2xl font-semibold">
+        <div class="flex items-center justify-between">
+          <h5 class=" font-semibold leading-none text-2xl w-full flex justify-start items-center py-2 px-3">View Cart</h5>
+        </div>
+        <div class="flow-root">
+          <ul role="list" class="flex flex-col gap-y-1">
+            <li class="py-1 sm:py-1 w-full flex justify-between items-center px-2">
+              <div class="flex items-center w-[85%] shadow-[0_3px_8px_rgba(0,0,0,0.24)] p-1.5 rounded-[10px]">
+                <div class="shrink-0">
+                  <img class="w-8 h-8 rounded-full"
+                    src="https://assets.bonappetit.com/photos/5b919cb83d923e31d08fed17/1:1/w_2560%2Cc_limit/basically-burger-1.jpg"
+                    alt="Neil image">
+                </div>
+                <div class="flex-1 min-w-0 ms-2">
+                  <p class="font-bold text-xl truncate">
+                    Gramercy Tavern
+                  </p>
+                  <p class="text-sm truncate font-light">
+                    The Gramercy Tavern Burger - 4 Pack
+                  </p>
+                </div>
+                <div class="inline-flex items-center font-bold text-xl">
+                  $99
+                </div>
+              </div>
+              <div class="deleteBtn">
+                <i class="fa-solid fa-delete-left text-[red]"></i>
+              </div>
+            </li>
+            <li class="py-1 sm:py-1 w-full flex justify-between items-center px-2 ">
+              <div class="flex items-center w-[85%] shadow-[0_3px_8px_rgba(0,0,0,0.24)] p-1.5 rounded-[10px]">
+                <div class="shrink-0">
+                  <img class="w-8 h-8 rounded-full"
+                    src="https://assets.bonappetit.com/photos/5b919cb83d923e31d08fed17/1:1/w_2560%2Cc_limit/basically-burger-1.jpg"
+                    alt="Neil image">
+                </div>
+                <div class="flex-1 min-w-0 ms-2">
+                  <p class="font-bold text-xl truncate">
+                    Gramercy Tavern
+                  </p>
+                  <p class="text-sm truncate font-light">
+                    The Gramercy Tavern Burger - 4 Pack
+                  </p>
+                </div>
+                <div class="inline-flex items-center font-bold text-xl">
+                  $99
+                </div>
+              </div>
+              <div class="deleteBtn">
+                <i class="fa-solid fa-delete-left text-[red]"></i>
+              </div>
+            </li>
+          </ul>
+          <div class="text-center mt-4">
+          <button class="placeOrder w-[90%] p-1 rounded bg-[#e92d1f] text-white text-base">
+            Place Order
+          </button>
+          </div>
+        </div>
+
+      </div>
     </main>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

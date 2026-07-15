@@ -15,6 +15,7 @@ const addRecipe=document.querySelector(".addRecipe")
 const bookMarks=document.querySelector(".bookMarks")
 const searchBar = document.querySelector(".searchBar");
 let recentActiveTab=allNavigation;
+let cart=[];
  const activeTabCheck=(activeTab)=>{
     switch (activeTab.toLowerCase()) {
       case "all":
@@ -80,7 +81,16 @@ hamburger.addEventListener("click", () => {
 
 });
 
-
+const addToCart=(product)=>{
+    cart.push({
+       name:product.parentElement.parentElement.querySelector("h3").textContent,
+      price:(product.parentElement.querySelector("span").textContent).replace(/\D/g, ""),
+      img:product.parentElement.parentElement.querySelector("img").src,
+      description:product.parentElement.parentElement.querySelector("p").textContent
+   });
+   console.log(cart);
+}
+window.addToCart=addToCart;
 const returnCard = (data) => {
     let ratingStar="⭐".repeat(data.rate);
    return `
@@ -91,7 +101,7 @@ const returnCard = (data) => {
              <span class="rating bg-[#F6C244] text-[#ffffff] px-2 py-1 font-black rounded-2xl text-[13px] absolute top-2 left-1.5">${ratingStar}</span>
             <div class="cardEnd flex px-2  items-center absolute bottom-1.5  justify-between w-full">
               <span class="text-[#111827] font-semibold text-[18px] ml-1">Price:$${data.price}</span>
-              <button class="bg-[#e92d1f] xhover:bg-[#DC3C31] transition duration-150 text-[#FFFFFF] shadow-[0_12px_24px_rgba(239,75,63,.35)] py-2 px-3 rounded-2xl text-[14px]"><i class="fa-solid fa-cart-shopping mr-0.5"></i>Add to Cart</button>
+              <button class="bg-[#e92d1f] xhover:bg-[#DC3C31] transition duration-150 text-[#FFFFFF] shadow-[0_12px_24px_rgba(239,75,63,.35)] py-2 px-3 rounded-2xl text-[14px]" onclick="addToCart(this)"><i class="fa-solid fa-cart-shopping mr-0.5"></i>Add to Cart</button>
             </div>
           </div>
       `
