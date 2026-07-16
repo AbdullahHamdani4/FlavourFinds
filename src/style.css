@@ -1,8 +1,10 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
+@import url('https://googleapis.com');
 @theme {
     --font-sans: "Poppins", sans-serif;
+    --font-oswald: "Oswald", sans-serif;
+    --font-inter: "Inter", sans-serif;
+    --font-jetbrains: "JetBrains Mono", monospace;
 }
 
 body {
@@ -53,6 +55,7 @@ body {
 }
 @media(max-width:508px) {
     .navigationPanel {
+        height: 70px;
         justify-content: start;
         overflow-x: scroll;
     }
@@ -60,6 +63,7 @@ body {
 
 @media(min-width:768px) and (max-width:807px) {
     .navigationPanel {
+        height: 70px;
         justify-content: start;
         overflow-x: scroll;
     }

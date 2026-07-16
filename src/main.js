@@ -20,37 +20,50 @@ let cart=[];
  const activeTabCheck=(activeTab)=>{
     switch (activeTab.toLowerCase()) {
       case "all":
-         allNavigation.style.backgroundColor="#f1e3e3"
-          recentActiveTab.style.backgroundColor="#fff";
+         allNavigation.style.backgroundColor="#E2622D"
+         allNavigation.style.color="#1B1613"
+          recentActiveTab.style.backgroundColor="#241D18";
+          recentActiveTab.style.color="#C99A44";
          recentActiveTab=allNavigation;
          break;
       case "burgers":
-         BurgersNavigation.style.backgroundColor="#f1e3e3";
-         recentActiveTab.style.backgroundColor="#fff"
+         BurgersNavigation.style.backgroundColor="#E2622D";
+         BurgersNavigation.style.color="#1B1613";
+         recentActiveTab.style.backgroundColor="#241D18"
+         recentActiveTab.style.color="#C99A44"
          recentActiveTab=BurgersNavigation;
          break;
       case "steaks":
-         SteaksNavigation.style.backgroundColor="#f1e3e3";
-         recentActiveTab.style.backgroundColor="#fff"
+         SteaksNavigation.style.backgroundColor="#E2622D";
+         SteaksNavigation.style.color="#1B1613";
+         recentActiveTab.style.backgroundColor="#241D18"
+         recentActiveTab.style.color="#C99A44"
          recentActiveTab=SteaksNavigation;
          break;
       case "pizzas":
-         pizzaNavigation.style.backgroundColor="#f1e3e3";
-         recentActiveTab.style.backgroundColor="#fff"
+         pizzaNavigation.style.backgroundColor="#E2622D";
+         pizzaNavigation.style.color="#1B1613";
+         recentActiveTab.style.backgroundColor="#241D18"
+         recentActiveTab.style.color="#C99A44"
          recentActiveTab=pizzaNavigation;
-         break;
+         break;l
       case "drinks":
-         drinksNavigation.style.backgroundColor="#f1e3e3";
-         recentActiveTab.style.backgroundColor="#fff"
+         drinksNavigation.style.backgroundColor="#E2622D";
+         drinksNavigation.style.color="#1B1613";
+         recentActiveTab.style.backgroundColor="#241D18"
+         recentActiveTab.style.color="#C99A44"
          recentActiveTab=drinksNavigation;
          break;
       case "desserts":
-         dessertsNavigation.style.backgroundColor="#f1e3e3";
-         recentActiveTab.style.backgroundColor="#fff"
+         dessertsNavigation.style.backgroundColor="#E2622D";
+         dessertsNavigation.style.color="#1B1613";
+         recentActiveTab.style.backgroundColor="#241D18"
+         recentActiveTab.style.color="#C99A44"
          recentActiveTab=dessertsNavigation;
          break;
       case "":
-         recentActiveTab.style.backgroundColor="#fff"
+         recentActiveTab.style.backgroundColor="#241D18";
+         recentActiveTab.style.color="#C99A44"
           break;
       default:
          break;
@@ -126,14 +139,14 @@ window.addToCart=addToCart;
 const returnCard = (data) => {
     let ratingStar="⭐".repeat(data.rate);
    return `
-      <div class="card h-86 w-76 bg-[#FFFFFF] rounded-[20px] shadow-[0_18px_45px_rgba(0,0,0,.10),0_6px_18px_rgba(0,0,0,.06)] font-sans relative">
-            <img src=${data.img} alt="" class="h-[60%] w-full rounded-t-[20px]" onerror=" this.src='/Images/default Image.jpg'">
-            <h3 class="text-[20px] font-semibold text-[#1F2937] ml-1.5 mt-1">${data.name}</h3>
-            <p class="text-[#6B7280] text-[14px]  ml-1.5 mb-1">${data.dsc}</p>
-             <span class="rating bg-[#F6C244] text-[#ffffff] px-2 py-1 font-black rounded-2xl text-[13px] absolute top-2 left-1.5">${ratingStar}</span>
-            <div class="cardEnd flex px-2  items-center absolute bottom-1.5  justify-between w-full">
-              <span class="text-[#111827] font-semibold text-[18px] ml-1">Price:$${data.price}</span>
-              <button class="bg-[#e92d1f] xhover:bg-[#DC3C31] transition duration-150 text-[#FFFFFF] shadow-[0_12px_24px_rgba(239,75,63,.35)] py-2 px-3 rounded-2xl text-[14px]" onclick="addToCart(this)"><i class="fa-solid fa-cart-shopping mr-0.5"></i>Add to Cart</button>
+      <div class="card h-auto w-67.5 bg-[#241D18] rounded-lg shadow-[0_18px_45px_rgba(0,0,0,.10),0_6px_18px_rgba(0,0,0,.06)] font-sans relative">
+            <img src=${data.img} alt="" class="h-35 w-full rounded-t-lg" onerror=" this.src='/Images/default Image.jpg'">
+            <h3 class="text-[14px] font-semibold font-oswald text-[#F1E4D0] m-0.5 mt-2 ml-1.5 uppercase truncate">${data.name}</h3>
+            <p class="font-inter text-[#8a7d68] text-[11.5px]  ml-1.5 mb-1  font-normal truncate">${data.dsc}</p>
+             <span class="rating bg-[#1B1613] text-[#C99A44] px-2 py-1 font-black rounded-sm text-[13px] absolute top-1 left-1 border border-[#C99A44]">${ratingStar}</span>
+            <div class="cardEnd flex px-2  items-center justify-between w-full mt-2 mb-1.5">
+              <span class="text-[#C99A44] font-semibold text-[15px] ml-1 font-jetbrains">Price:$${data.price}</span>
+              <button class="bg-[#E2622D] xhover:bg-[#C24D1F] transition duration-150 text-[#1B1613] py-1.5 px-2.5 rounded-sm text-[11.5px]" onclick="addToCart(this)"><i class="fa-solid fa-cart-shopping mr-0.5"></i>Add to Cart</button>
             </div>
           </div>
       `
@@ -265,8 +278,11 @@ searchBar.addEventListener("input", () => {
    if(searchBar.value.trim()) {
       apiData("All", searchBar.value);
        activeTabCheck("")
-   }  else {allNavigation.style.backgroundColor="#f1e3e3"
-      apiData("All")
+   }  else {
+      allNavigation.style.backgroundColor="#E2622D";
+            allNavigation.style.color="#1B1613"
+
+       apiData("All")
    }
 });
 addRecipe.addEventListener("click",()=>{
