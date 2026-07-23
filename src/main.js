@@ -161,6 +161,7 @@ const apiData = async (category, searchBarTrigger) => {
    try {
       const response = await fetch(`https://free-food-menus-api-two.vercel.app/${category.toLowerCase()}`);
       const data = await response.json();
+      console.log(data);
       if (!searchBarTrigger) {
          if (category == "All") {
             const { burgers, steaks, pizzas, drinks, desserts } = data;
