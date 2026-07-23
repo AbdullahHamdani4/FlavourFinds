@@ -15,8 +15,10 @@ const addRecipe=document.querySelector(".addRecipe")
 const bookMarks=document.querySelector(".bookMarks")
 const searchBar = document.querySelector(".searchBar");
 const cartList=document.querySelector(".cartList");
+const cartTotal=document.querySelector(".cartTotal")
 let recentActiveTab=allNavigation;
 let cart=[];
+let totalPrice=[];
  const activeTabCheck=(activeTab)=>{
     switch (activeTab.toLowerCase()) {
       case "all":
@@ -106,40 +108,45 @@ const addToCart=(product)=>{
       img:product.parentElement.parentElement.querySelector("img").src,
       description:product.parentElement.parentElement.querySelector("p").textContent
    });
-   let cartHTML=cart.map((eachItem)=>{
+   totalPrice.push(Number((product.parentElement.querySelector("span").textContent).replace(/\D/g, "")));
+    let cartHTML=cart.map((eachItem)=>{
    return `
-      <li class="py-1 sm:py-1 w-full flex justify-between items-center px-2">
-              <div class="flex items-center w-[85%] shadow-[0_3px_8px_rgba(0,0,0,0.24)] p-1.5 rounded-[10px]">
+      <li class="py-1 sm:py-1 w-full flex justify-between items-center px-1 relative">
+              <div class="flex items-center gap-2 bg-[#1B1613] border border-[#3A2F27] rounded-sm p-2 w-[92%] ml-2">
                 <div class="shrink-0">
                   <img class="w-8 h-8 rounded-full"
                     src="${eachItem.img}"
                     alt="Neil image">
                 </div>
-                <div class="flex-1 min-w-0 ms-2">
-                  <p class="font-bold text-xl truncate">
+                <div class="min-w-0 ms-2">
+                  <p class="font-bold text-base truncate text-[#F1E4D0]">
                      ${eachItem.name}
                   </p>
-                  <p class="text-sm truncate font-light">
+                  <p class="text-[12px] text-[#8a7d68] truncate w-58">
                     ${eachItem.description}
                   </p>
                 </div>
-                <div class="inline-flex items-center font-bold text-xl">
+                <div class="text-sm text-[#C99A44] font-semibold absolute right-13">
                   $${eachItem.price}
                 </div>
               </div>
-              <div class="deleteBtn" onclick="deleteCartItemBtn(this)">
-                <i class="fa-solid fa-delete-left text-[red]" ></i>
+              <div class="deleteBtn cursor-pointer px-1 w-[8%]" onclick="deleteCartItemBtn(this)">
+                <i class="fa-solid fa-trash text-[#de362a] text-lg" ></i>
               </div>
             </li>
    `
    });
-  cartList.innerHTML=cartHTML.join("")
+   let cartTotalUsingReduce=totalPrice.reduce((accu,currval)=>{
+     return accu + currval
+   },0);
+   cartTotal.textContent=`$${cartTotalUsingReduce}`
+   cartList.innerHTML=cartHTML.join("");
 }
 window.addToCart=addToCart;
 const returnCard = (data) => {
     let ratingStar="⭐".repeat(data.rate);
    return `
-      <div class="card h-auto w-67.5 bg-[#241D18] rounded-lg shadow-[0_18px_45px_rgba(0,0,0,.10),0_6px_18px_rgba(0,0,0,.06)] font-sans relative">
+      <div class="card h-auto w-67.5 bg-[#241D18] rounded-lg shadow-[0_18px_45px_rgba(0,0,0,.10),0_6px_18px_rgba(0,0,0,.06)] font-sans relative border border-[#4A3C30]">
             <img src=${data.img} alt="" class="h-35 w-full rounded-t-lg" onerror=" this.src='/Images/default Image.jpg'">
             <h3 class="text-[14px] font-semibold font-oswald text-[#F1E4D0] m-0.5 mt-2 ml-1.5 uppercase truncate">${data.name}</h3>
             <p class="font-inter text-[#8a7d68] text-[11.5px]  ml-1.5 mb-1  font-normal truncate">${data.dsc}</p>
@@ -161,8 +168,7 @@ const apiData = async (category, searchBarTrigger) => {
    try {
       const response = await fetch(`https://free-food-menus-api-two.vercel.app/${category.toLowerCase()}`);
       const data = await response.json();
-      console.log(data);
-      if (!searchBarTrigger) {
+       if (!searchBarTrigger) {
          if (category == "All") {
             const { burgers, steaks, pizzas, drinks, desserts } = data;
             const allData = [];

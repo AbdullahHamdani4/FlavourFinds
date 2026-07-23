@@ -33,9 +33,11 @@
           class="h-9 border border-[#534338]  rounded-2xl p-3 pl-4 pr-6 text-base outline-none searchBar bg-[#1B1613] text-[#d8b57d]">
       </div>
       <div class="headerButtonContainer mr-6.5 hidden md:flex gap-1.5">
-        <button class="addRecipe rounded-lg border-2 p-1.5 px-2 border-[#534338] text-[14px] font-sans text-[#F1E4D0]"><i
+        <button
+          class="addRecipe rounded-lg border-2 p-1.5 px-2 border-[#534338] text-[14px] font-sans text-[#F1E4D0]"><i
             class="fa-regular fa-pen-to-square primary-color text-base mr-0.5"></i>Our Story</button>
-        <button class="bookMarks rounded-lg border-2 p-1.5 px-2 border-[#534338] text-[14px] font-sans text-[#F1E4D0]"><i
+        <button
+          class="bookMarks rounded-lg border-2 p-1.5 px-2 border-[#534338] text-[14px] font-sans text-[#F1E4D0]"><i
             class="fa-solid fa-phone primary-color text-base mr-0.5"></i>Contact Us</button>
       </div>
 
@@ -76,26 +78,33 @@
             class="dessertsNavigation cursor-pointer px-5  sm:px-5 py-1 rounded-sm  font-serif  text-[15px]   sm:text-base bg-[#241D18]  border text-[#C99A44] border-[#534338]">Desserts</span>
         </div>
         <div
-          class="cards h-[calc(100vh-112px)] overflow-y-scroll flex flex-wrap gap-5 justify-center items-center py-5 bg-[#1B1613]">
+          class="cards h-[calc(100vh-112px)] overflow-y-scroll flex flex-wrap gap-5 justify-center items-center py-5 px-3 bg-[#1B1613]">
           <div class="loader"></div>
           <p class="font-semibold text-2xl">Fetching Products</p>
 
         </div>
       </div>
-      <div class="mainCart w-[25%]  hidden  h-[calc(100vh-60px)] md:flex  flex-col text-2xl font-semibold overflow-y-scroll">
+      <div
+        class="mainCart w-[25%]  hidden  h-[calc(100vh-60px)] md:flex  flex-col text-2xl font-semibold overflow-y-scroll bg-[#241D18]">
         <div class="flex items-center justify-between">
-          <h5 class=" font-semibold leading-none text-2xl w-full flex justify-start items-center py-2 px-3 bg-[#241D18]">View ticket</h5>
+          <h5
+            class=" font-semibold leading-none text-2xl w-full flex justify-center items-center font-oswald uppercase text-[#F1E4D0] p-[16px_18px_10px] bg-[#302720] mb-1.5">
+            View Cart</h5>
         </div>
         <div class="flow-root">
           <ul role="list" class="flex flex-col gap-y-1 cartList">
             <li class="py-1 sm:py-1 w-full flex justify-between items-center px-2">
-              <p class=" text-xl font-medium w-full text-center"> Add Items from the menu</p>
+              <p class=" text-xl font-medium w-full text-center text-[#d1c6b6]"> Add Items from the menu</p>
             </li>
           </ul>
+          <div class="flex justify-between items-center font-mono font-semibold text-sm text-[#F1E4D0] mb-2.5 px-2.5 border mx-1 border-[#534338] rounded-sm mt-2">
+            <span class="text-lg">TOTAL</span>
+            <span class="text-[#C99A44] cartTotal text-lg">$0</span>
+          </div>
           <div class="text-center mt-4">
-          <button class="placeOrder w-[90%] p-1 rounded bg-[#e92d1f] text-white text-base">
-            Place Order
-          </button>
+            <button class="placeOrder w-[90%] p-2 rounded-sm bg-[#E2622D] text-[#1B1613] font-semibold uppercase tracking-wide text-base ">
+              Place Order
+            </button>
           </div>
         </div>
 

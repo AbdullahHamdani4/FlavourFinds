@@ -33,6 +33,24 @@ body {
   border-right-color: orange;
   animation: l2 1s infinite linear;
 }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3A2F27 #1B1613;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1B1613;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3A2F27;
+  border-radius: 4px;
+}
 @keyframes l2 {to{transform: rotate(1turn)}}
 
 
