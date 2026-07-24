@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
@@ -60,7 +61,7 @@
       </div>
     </header>
     <main class="flex-1 w-full mt-15 flex flex-row">
-      <div class="mainLayout w-full md:w-[75%] shadow-[0px_5px_15px_rgba(0,0,0,0.35)]">
+      <div class="mainLayout w-full xl:w-[75%] shadow-[0px_5px_15px_rgba(0,0,0,0.35)]">
         <div
           class="navigationPanel w-full h-13 flex justify-center items-center gap-3 px-3 border-b border-[#534338] bg-[#1B1613]">
           <span
@@ -69,7 +70,7 @@
             class="BurgersNavigation cursor-pointer px-5  sm:px-5 py-1 rounded-sm  font-serif  text-[15px]   sm:text-base bg-[#241D18]  border text-[#C99A44] border-[#534338]">Burgers</span>
 
           <span
-            class="SteaksNavigation cursor-pointer px-5  sm:px-5 py-1 rounded-sm  font-serif  text-[15px]   sm:text-base bg-[#241D18]  border text-[#C99A44] border-[#534338]">Steaks</span>
+            class="steaksNavigation cursor-pointer px-5  sm:px-5 py-1 rounded-sm  font-serif  text-[15px]   sm:text-base bg-[#241D18]  border text-[#C99A44] border-[#534338]">Steaks</span>
           <span
             class="pizzaNavigation cursor-pointer px-5  sm:px-5 py-1 rounded-sm  font-serif  text-[15px]   sm:text-base bg-[#241D18]  border text-[#C99A44] border-[#534338]">Pizza</span>
           <span
@@ -80,12 +81,12 @@
         <div
           class="cards h-[calc(100vh-112px)] overflow-y-scroll flex flex-wrap gap-5 justify-center items-center py-5 px-3 bg-[#1B1613]">
           <div class="loader"></div>
-          <p class="font-semibold text-2xl">Fetching Products</p>
+          <p class="font-semibold text-2xl text-[#F1E4D0]">Fetching Products</p>
 
         </div>
       </div>
       <div
-        class="mainCart w-[25%]  hidden  h-[calc(100vh-60px)] md:flex  flex-col text-2xl font-semibold overflow-y-scroll bg-[#241D18]">
+        class="mainCart w-[25%]  hidden  h-[calc(100vh-60px)] xl:flex  flex-col text-2xl font-semibold overflow-y-scroll bg-[#241D18]">
         <div class="flex items-center justify-between">
           <h5
             class=" font-semibold leading-none text-2xl w-full flex justify-center items-center font-oswald uppercase text-[#F1E4D0] p-[16px_18px_10px] bg-[#302720] mb-1.5">
@@ -112,6 +113,7 @@
     </main>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script type="module" src="/src/main.js"></script>
 </body>
 
